@@ -59,6 +59,19 @@ npm run lint     # Lint code
 - Lavender accent: `#C4B1D4`, sage: `#A8C5A0`, dusty rose: `#D4A0A0`, warm gold: `#D4A96A`
 - Dark mode base: `#1A1A2E` (deep indigo/navy)
 
+## Maintaining This File
+
+After any significant change to the project, update this CLAUDE.md to reflect the current state. This includes:
+
+- Adding or removing dependencies from the tech stack
+- Changes to project structure (new directories, renamed modules)
+- New, changed, or removed build/test/lint commands
+- New key files or removal of existing ones
+- Changes to design guidelines or architecture decisions
+- Updates to project status (e.g., moving from spec phase to implementation)
+
+Keep this file accurate so it serves as a reliable reference for every session.
+
 ## Architecture Principles
 
 - **Local-first**: All data stored locally in SQLite, no cloud/backend
