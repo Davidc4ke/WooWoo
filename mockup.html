@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soul Journal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FFF8F0;
+      --bg-sidebar: #F5EDE3;
+      --text: #3D3D3D;
+      --text-muted: #8A8A8A;
+      --lavender: #C4B1D4;
+      --sage: #A8C5A0;
+      --rose: #D4A0A0;
+      --gold: #D4A96A;
+      --border: #E8DDD0;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 0;
+      flex-shrink: 0;
+    }
+
+    .sidebar-brand {
+      text-align: center;
+      padding: 0 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-brand h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .sidebar-brand .moon {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      padding: 16px 0;
+      flex: 1;
+    }
+
+    .sidebar-nav li {
+      padding: 12px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav li:hover {
+      color: var(--text);
+      background: rgba(196, 177, 212, 0.1);
+    }
+
+    .sidebar-nav li.active {
+      color: var(--text);
+      background: rgba(196, 177, 212, 0.15);
+      border-left-color: var(--lavender);
+    }
+
+    .sidebar-nav li .icon {
+      font-size: 1.2rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    /* Main content area */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .main-placeholder {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <h1>Soul Journal</h1>
+      <div class="moon">&#9790; Waxing Crescent</div>
+    </div>
+    <ul class="sidebar-nav">
+      <li class="active">
+        <span class="icon">&#9788;</span>
+        <span>Daily Journal</span>
+      </li>
+      <li>
+        <span class="icon">&#9789;</span>
+        <span>Dream Journal</span>
+      </li>
+      <li>
+        <span class="icon">&#10022;</span>
+        <span>Soul Review</span>
+      </li>
+      <li>
+        <span class="icon">&#9881;</span>
+        <span>Settings</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <div class="main-placeholder">
+      Select a section from the sidebar
+    </div>
+  </main>
+
+</body>
+</html>
