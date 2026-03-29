@@ -241,14 +241,217 @@
       font-weight: 500;
     }
 
-    /* Editor placeholder */
-    .editor-placeholder {
+    /* Entry editor panel */
+    .entry-editor {
       flex: 1;
+      overflow-y: auto;
+      padding: 32px 40px;
+    }
+
+    .editor-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .editor-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .editor-title-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+      background: transparent;
+      margin-bottom: 16px;
+    }
+
+    .editor-title-input::placeholder {
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    /* Mood selector */
+    .mood-selector {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .mood-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-right: 4px;
+    }
+
+    .mood-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .mood-btn:hover {
+      border-color: var(--lavender);
+      transform: scale(1.1);
+    }
+
+    .mood-btn.active {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 169, 106, 0.25);
+      transform: scale(1.1);
+    }
+
+    /* Divider */
+    .editor-divider {
+      text-align: center;
+      color: var(--border);
+      font-size: 0.8rem;
+      margin: 8px 0 20px;
+      letter-spacing: 6px;
+    }
+
+    /* Body textarea */
+    .editor-body {
+      width: 100%;
+      min-height: 220px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text);
+      background: white;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.2s ease;
+    }
+
+    .editor-body:focus {
+      border-color: var(--lavender);
+    }
+
+    /* Tags input area */
+    .tags-section {
+      margin-top: 20px;
+    }
+
+    .tags-section-label {
+      font-size: 0.8rem;
       color: var(--text-muted);
-      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .tags-display {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .tag-pill-editor {
+      font-size: 0.8rem;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: rgba(168, 197, 160, 0.2);
+      color: #6B8A63;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tag-pill-editor .tag-remove {
+      cursor: pointer;
+      opacity: 0.5;
+      font-size: 0.7rem;
+    }
+
+    .tag-pill-editor .tag-remove:hover {
+      opacity: 1;
+    }
+
+    .tag-add-input {
+      border: 1px dashed var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text);
+      background: transparent;
+      outline: none;
+      width: 120px;
+    }
+
+    .tag-add-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* Action buttons */
+    .editor-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 10px 24px;
+      border-radius: 12px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-save {
+      background: var(--sage);
+      color: white;
+    }
+
+    .btn-save:hover {
+      background: #96B58E;
+      transform: translateY(-1px);
+    }
+
+    .btn-analyse {
+      background: linear-gradient(135deg, var(--lavender), var(--gold));
+      color: white;
+    }
+
+    .btn-analyse:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(196, 177, 212, 0.4);
+    }
+
+    .btn-delete {
+      background: transparent;
+      color: var(--rose);
+      border: 1px solid var(--rose);
+      margin-left: auto;
+    }
+
+    .btn-delete:hover {
+      background: rgba(212, 160, 160, 0.1);
     }
   </style>
 </head>
@@ -359,9 +562,48 @@
       </div>
     </div>
 
-    <!-- Editor area (placeholder for next step) -->
-    <div class="editor-placeholder">
-      &#10024; Select an entry or create a new one
+    <!-- Entry editor panel -->
+    <div class="entry-editor">
+      <div class="editor-inner">
+        <div class="editor-date">March 29, 2026 &#8226; Sunday</div>
+        <input type="text" class="editor-title-input" value="Morning clarity" placeholder="Give this entry a title...">
+
+        <!-- Mood selector -->
+        <div class="mood-selector">
+          <span class="mood-label">Mood:</span>
+          <button class="mood-btn active" title="Radiant">&#9728;&#65039;</button>
+          <button class="mood-btn" title="Good">&#128522;</button>
+          <button class="mood-btn" title="Neutral">&#128528;</button>
+          <button class="mood-btn" title="Low">&#127780;&#65039;</button>
+          <button class="mood-btn" title="Stormy">&#9928;&#65039;</button>
+        </div>
+
+        <div class="editor-divider">&#10038; &#10038; &#10038;</div>
+
+        <!-- Body -->
+        <textarea class="editor-body" placeholder="Write your thoughts...">Woke up feeling unusually grounded today. The meditation session brought some vivid imagery — a golden field stretching endlessly, with a single oak tree at the center.
+
+I sat beneath it in my mind's eye and felt this deep sense of belonging. Like the roots were mine too.
+
+Need to remember this feeling when things get chaotic. The stillness is always available, I just forget to reach for it.</textarea>
+
+        <!-- Tags -->
+        <div class="tags-section">
+          <div class="tags-section-label">Tags</div>
+          <div class="tags-display">
+            <span class="tag-pill-editor">growth <span class="tag-remove">&#10005;</span></span>
+            <span class="tag-pill-editor">meditation <span class="tag-remove">&#10005;</span></span>
+            <input type="text" class="tag-add-input" placeholder="add tag...">
+          </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="editor-actions">
+          <button class="btn btn-save">Save</button>
+          <button class="btn btn-analyse">&#10024; Analyse</button>
+          <button class="btn btn-delete">Delete</button>
+        </div>
+      </div>
     </div>
 
   </main>
