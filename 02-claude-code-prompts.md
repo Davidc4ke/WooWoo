@@ -160,7 +160,7 @@ Full CRUD working and persisted. Reuse shared components where possible (tag inp
 
 ---
 
-## Prompt 6 — Settings Page
+## Prompt 6 — Settings Page ✅ COMPLETED
 
 ```
 Build the Settings page:
