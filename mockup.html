@@ -102,11 +102,144 @@
     .main {
       flex: 1;
       display: flex;
-      flex-direction: column;
       overflow: hidden;
     }
 
-    .main-placeholder {
+    /* Entry list panel */
+    .entry-list {
+      width: 320px;
+      background: var(--bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .entry-list-header {
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .entry-list-header h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .new-entry-btn {
+      width: 100%;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, var(--lavender), var(--rose));
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 12px;
+    }
+
+    .new-entry-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(196, 177, 212, 0.4);
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-box::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-box:focus {
+      border-color: var(--lavender);
+    }
+
+    .entry-list-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px;
+    }
+
+    .entry-card {
+      padding: 14px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 4px;
+    }
+
+    .entry-card:hover {
+      background: rgba(196, 177, 212, 0.08);
+    }
+
+    .entry-card.active {
+      background: rgba(196, 177, 212, 0.15);
+      box-shadow: 0 0 0 1px var(--lavender);
+    }
+
+    .entry-card-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .entry-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .entry-card-title .mood {
+      font-size: 1.1rem;
+    }
+
+    .entry-card-preview {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .entry-card-tags {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(168, 197, 160, 0.2);
+      color: #6B8A63;
+      font-weight: 500;
+    }
+
+    /* Editor placeholder */
+    .editor-placeholder {
       flex: 1;
       display: flex;
       align-items: center;
@@ -146,9 +279,88 @@
 
   <!-- Main content -->
   <main class="main">
-    <div class="main-placeholder">
-      Select a section from the sidebar
+
+    <!-- Entry list panel -->
+    <div class="entry-list">
+      <div class="entry-list-header">
+        <h2>&#9788; Daily Journal</h2>
+        <button class="new-entry-btn">&#10024; New Entry</button>
+        <input type="text" class="search-box" placeholder="Search your thoughts...">
+      </div>
+      <div class="entry-list-items">
+
+        <div class="entry-card active">
+          <div class="entry-card-date">March 29, 2026</div>
+          <div class="entry-card-title">
+            <span class="mood">&#9728;&#65039;</span>
+            Morning clarity
+          </div>
+          <div class="entry-card-preview">Woke up feeling unusually grounded today. The meditation session brought some vivid imagery...</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">growth</span>
+            <span class="tag-pill">meditation</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 28, 2026</div>
+          <div class="entry-card-title">
+            <span class="mood">&#128522;</span>
+            A good day overall
+          </div>
+          <div class="entry-card-preview">Had a meaningful conversation with Sarah about our creative projects. Felt inspired to start painting again...</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">creativity</span>
+            <span class="tag-pill">relationships</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 27, 2026</div>
+          <div class="entry-card-title">
+            <span class="mood">&#128528;</span>
+            Quiet reflection
+          </div>
+          <div class="entry-card-preview">Not much happened externally but I spent a lot of time thinking about what direction I want to take...</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">introspection</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 26, 2026</div>
+          <div class="entry-card-title">
+            <span class="mood">&#127780;&#65039;</span>
+            Feeling a bit low
+          </div>
+          <div class="entry-card-preview">Energy was off today. Couldn't focus on work and felt scattered. Maybe the full moon energy is affecting me...</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">health</span>
+            <span class="tag-pill">energy</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 25, 2026</div>
+          <div class="entry-card-title">
+            <span class="mood">&#9728;&#65039;</span>
+            Breakthrough moment
+          </div>
+          <div class="entry-card-preview">Something shifted during yoga today. I finally understood what my therapist meant about letting go...</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">growth</span>
+            <span class="tag-pill">healing</span>
+          </div>
+        </div>
+
+      </div>
     </div>
+
+    <!-- Editor area (placeholder for next step) -->
+    <div class="editor-placeholder">
+      &#10024; Select an entry or create a new one
+    </div>
+
   </main>
 
 </body>
