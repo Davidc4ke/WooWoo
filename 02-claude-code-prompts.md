@@ -80,7 +80,7 @@ Each store should sync with the SQLite repos on mutations. Load initial data on 
 
 ---
 
-## Prompt 3 — App Shell & Navigation
+## Prompt 3 — App Shell & Navigation ✅ COMPLETED
 
 ```
 Build the app shell with sidebar navigation and main content area. Refer to the requirements doc for the design direction:
