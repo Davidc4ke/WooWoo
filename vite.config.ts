@@ -16,6 +16,12 @@ export default defineConfig({
   build: {
     outDir: 'dist/renderer',
     emptyOutDir: true,
+    rollupOptions: {
+      external: ['better-sqlite3', 'electron', 'path'],
+    },
+  },
+  optimizeDeps: {
+    exclude: ['better-sqlite3'],
   },
   server: {
     port: 5173,

@@ -33,7 +33,7 @@ Install all dependencies. Make sure the app launches with a blank window showing
 
 ---
 
-## Prompt 1 — Database Layer
+## Prompt 1 — Database Layer ✅ COMPLETED
 
 ```
 Create the SQLite database layer in src/renderer/db/. Implement:
