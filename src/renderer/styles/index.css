@@ -328,3 +328,471 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   padding: 32px 40px;
 }
+
+/* ===== Journal Two-Panel Layout ===== */
+.journal-page {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ── Entry List (Left Panel) ── */
+.entry-list {
+  width: 320px;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.entry-list-header {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.entry-list-header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.new-entry-btn {
+  width: 100%;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, var(--lavender), var(--rose));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.new-entry-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(196, 177, 212, 0.4);
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-box {
+  width: 100%;
+  padding: 10px 14px 10px 34px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-box::placeholder {
+  color: var(--text-muted);
+}
+
+.search-box:focus {
+  border-color: var(--lavender);
+}
+
+.entry-list-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.entry-list-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── Entry Card ── */
+.entry-card {
+  padding: 14px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.entry-card:hover {
+  background: rgba(196, 177, 212, 0.08);
+}
+
+.entry-card.active {
+  background: rgba(196, 177, 212, 0.15);
+  box-shadow: 0 0 0 1px var(--lavender);
+}
+
+.entry-card-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.entry-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.entry-card-title .mood {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.entry-card-preview {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.entry-card-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.tag-pill {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(168, 197, 160, 0.2);
+  color: #6B8A63;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .tag-pill {
+  background: rgba(91, 138, 138, 0.2);
+  color: #8ABABA;
+}
+
+/* ── Entry Editor (Right Panel) ── */
+.entry-editor {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 40px;
+}
+
+.editor-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.editor-date-input {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.editor-date-input:focus {
+  border-color: var(--lavender);
+}
+
+.editor-title-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: transparent;
+  margin-bottom: 16px;
+}
+
+.editor-title-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* ── Mood Selector ── */
+.mood-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.mood-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.mood-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.mood-btn:hover {
+  border-color: var(--lavender);
+  transform: scale(1.1);
+}
+
+.mood-btn.active {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 169, 106, 0.25);
+  transform: scale(1.1);
+}
+
+/* ── Divider ── */
+.editor-divider {
+  text-align: center;
+  color: var(--border);
+  font-size: 0.8rem;
+  margin: 8px 0 20px;
+  letter-spacing: 6px;
+}
+
+/* ── Body Textarea ── */
+.editor-body {
+  width: 100%;
+  min-height: 220px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg-card);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.editor-body:focus {
+  border-color: var(--lavender);
+}
+
+/* ── Tags Input ── */
+.tags-section {
+  margin-top: 20px;
+}
+
+.tags-section-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.tags-display {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tag-pill-editor {
+  font-size: 0.8rem;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: rgba(168, 197, 160, 0.2);
+  color: #6B8A63;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag-pill-editor.lavender {
+  background: rgba(196, 177, 212, 0.2);
+  color: #7B6B8B;
+}
+
+[data-theme="dark"] .tag-pill-editor {
+  background: rgba(91, 138, 138, 0.2);
+  color: #8ABABA;
+}
+
+[data-theme="dark"] .tag-pill-editor.lavender {
+  background: rgba(107, 91, 123, 0.3);
+  color: #B8A5C8;
+}
+
+.tag-pill-editor .tag-remove {
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 0.7rem;
+  transition: opacity 0.15s ease;
+}
+
+.tag-pill-editor .tag-remove:hover {
+  opacity: 1;
+}
+
+.tag-add-input {
+  border: 1px dashed var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text);
+  background: transparent;
+  outline: none;
+  width: 120px;
+  transition: border-color 0.2s ease;
+}
+
+.tag-add-input::placeholder {
+  color: var(--text-muted);
+}
+
+.tag-add-input:focus {
+  border-color: var(--lavender);
+}
+
+/* ── Action Buttons ── */
+.editor-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-save {
+  background: var(--sage);
+  color: white;
+}
+
+.btn-save:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+
+.btn-analyse {
+  background: linear-gradient(135deg, var(--lavender), var(--gold));
+  color: white;
+}
+
+.btn-analyse:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(196, 177, 212, 0.4);
+}
+
+.btn-delete {
+  background: transparent;
+  color: var(--rose);
+  border: 1px solid var(--rose);
+  margin-left: auto;
+}
+
+.btn-delete:hover {
+  background: rgba(212, 160, 160, 0.1);
+}
+
+.delete-confirm {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.btn-delete-yes {
+  background: var(--rose);
+  color: white;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
+.btn-delete-no {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
+/* ── Editor Empty State ── */
+.editor-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  min-height: 400px;
+}
+
+.editor-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.editor-empty p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
