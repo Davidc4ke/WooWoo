@@ -92,6 +92,14 @@ export const dailyEntryRepo = {
     return rows.map(rowToEntry);
   },
 
+  getByDateRange(startDate: string, endDate: string): DailyEntry[] {
+    const db = getDb();
+    const rows = db.prepare(
+      'SELECT * FROM daily_entries WHERE date >= ? AND date <= ? ORDER BY date ASC'
+    ).all(startDate, endDate) as DailyEntryRow[];
+    return rows.map(rowToEntry);
+  },
+
   search(query: string): DailyEntry[] {
     const db = getDb();
     const pattern = `%${query}%`;

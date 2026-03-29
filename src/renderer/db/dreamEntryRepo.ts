@@ -104,6 +104,14 @@ export const dreamEntryRepo = {
     return rows.map(rowToEntry);
   },
 
+  getByDateRange(startDate: string, endDate: string): DreamEntry[] {
+    const db = getDb();
+    const rows = db.prepare(
+      'SELECT * FROM dream_entries WHERE date >= ? AND date <= ? ORDER BY date ASC, created_at ASC'
+    ).all(startDate, endDate) as DreamEntryRow[];
+    return rows.map(rowToEntry);
+  },
+
   search(query: string): DreamEntry[] {
     const db = getDb();
     const pattern = `%${query}%`;
