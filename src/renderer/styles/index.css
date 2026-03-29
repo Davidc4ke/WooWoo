@@ -796,3 +796,118 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-muted);
   font-size: 1rem;
 }
+
+/* ===== Dream Journal Specifics ===== */
+
+/* ── Clarity Selector (moon rating) ── */
+.clarity-selector {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.clarity-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.clarity-moon {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.2s ease;
+  padding: 0;
+  color: var(--gold);
+}
+
+.clarity-moon:hover {
+  opacity: 0.6;
+  transform: scale(1.15);
+}
+
+.clarity-moon.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ── Toggle Switches ── */
+.toggle-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-item label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  background: var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.toggle-switch.on {
+  background: var(--lavender);
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-switch.on::after {
+  transform: translateX(18px);
+}
+
+/* ── Dream Entry Card Extras ── */
+.entry-card-clarity {
+  font-size: 0.75rem;
+  color: var(--gold);
+  margin-top: 4px;
+  letter-spacing: 2px;
+}
+
+.entry-card-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(196, 177, 212, 0.25);
+  color: #7B6B8B;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .entry-card-badge {
+  background: rgba(107, 91, 123, 0.3);
+  color: #B8A5C8;
+}
