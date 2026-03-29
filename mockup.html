@@ -467,6 +467,527 @@
     .btn-delete:hover {
       background: rgba(212, 160, 160, 0.1);
     }
+
+    /* Tab pages */
+    .page {
+      display: none;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    /* Dream journal specifics */
+    .clarity-selector {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    .clarity-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-right: 8px;
+    }
+
+    .clarity-moon {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: transparent;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0.3;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+
+    .clarity-moon:hover {
+      opacity: 0.6;
+      transform: scale(1.15);
+    }
+
+    .clarity-moon.active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* Toggle switches */
+    .toggle-row {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-item label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 42px;
+      height: 24px;
+      background: var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .toggle-switch.on {
+      background: var(--lavender);
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      transition: transform 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+
+    .toggle-switch.on::after {
+      transform: translateX(18px);
+    }
+
+    /* Symbol tags */
+    .symbol-pill {
+      font-size: 0.8rem;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: rgba(196, 177, 212, 0.2);
+      color: #7B6B8B;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Dream card clarity stars */
+    .entry-card-clarity {
+      font-size: 0.75rem;
+      color: var(--gold);
+      margin-top: 4px;
+      letter-spacing: 2px;
+    }
+
+    .entry-card-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(196, 177, 212, 0.25);
+      color: #7B6B8B;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    /* Soul Review page */
+    .review-page {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px;
+    }
+
+    .review-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .review-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .week-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .week-nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: white;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .week-nav-btn:hover {
+      border-color: var(--lavender);
+      color: var(--text);
+    }
+
+    .week-range {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Summary cards */
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .summary-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .summary-card-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .summary-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .summary-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .mood-trend {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .mood-trend svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Common tags */
+    .common-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    /* Generate button */
+    .generate-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--lavender), var(--gold));
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 32px;
+    }
+
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(196, 177, 212, 0.4);
+    }
+
+    /* Analysis content */
+    .analysis-content {
+      background: white;
+      border-radius: 14px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      line-height: 1.8;
+    }
+
+    .analysis-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .analysis-content h3:first-child {
+      margin-top: 0;
+    }
+
+    .analysis-content p {
+      font-size: 0.92rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .analysis-content .highlight {
+      background: rgba(212, 169, 106, 0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .analysis-divider {
+      text-align: center;
+      color: var(--border);
+      font-size: 0.8rem;
+      margin: 24px 0;
+      letter-spacing: 8px;
+    }
+
+    /* Settings page */
+    .settings-page {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px;
+    }
+
+    .settings-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .settings-inner h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .settings-section {
+      margin-bottom: 36px;
+    }
+
+    .settings-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .settings-field {
+      margin-bottom: 16px;
+    }
+
+    .settings-field label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .settings-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .settings-input:focus {
+      border-color: var(--lavender);
+    }
+
+    .settings-row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .settings-row .settings-field {
+      flex: 1;
+    }
+
+    /* Framework toggles */
+    .framework-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .framework-pill {
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: white;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .framework-pill:hover {
+      border-color: var(--lavender);
+    }
+
+    .framework-pill.active {
+      background: rgba(196, 177, 212, 0.15);
+      border-color: var(--lavender);
+      color: var(--text);
+    }
+
+    /* API key field */
+    .api-key-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .api-key-row .settings-field {
+      flex: 1;
+    }
+
+    .btn-small {
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .btn-small:hover {
+      border-color: var(--lavender);
+    }
+
+    /* Theme toggle */
+    .theme-selector {
+      display: flex;
+      gap: 12px;
+    }
+
+    .theme-option {
+      flex: 1;
+      padding: 16px;
+      border-radius: 14px;
+      border: 2px solid var(--border);
+      background: white;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .theme-option:hover {
+      border-color: var(--lavender);
+    }
+
+    .theme-option.active {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 169, 106, 0.2);
+    }
+
+    .theme-option-icon {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .theme-option-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Data buttons */
+    .data-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-outline {
+      padding: 10px 24px;
+      border-radius: 12px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid var(--sage);
+      background: transparent;
+      color: #6B8A63;
+    }
+
+    .btn-outline:hover {
+      background: rgba(168, 197, 160, 0.1);
+    }
+
+    /* About section */
+    .about-section {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+    }
+
+    .about-section .app-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .about-section .app-version {
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .about-section .app-quote {
+      font-size: 0.85rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -499,6 +1020,9 @@
 
   <!-- Main content -->
   <main class="main">
+
+    <!-- ===== DAILY JOURNAL PAGE ===== -->
+    <div class="page active" data-page="daily">
 
     <!-- Entry list panel -->
     <div class="entry-list">
@@ -655,7 +1179,339 @@ Need to remember this feeling when things get chaotic. The stillness is always a
       </div>
     </div>
 
+    </div><!-- /daily page -->
+
+    <!-- ===== DREAM JOURNAL PAGE ===== -->
+    <div class="page" data-page="dream">
+
+    <!-- Dream entry list -->
+    <div class="entry-list">
+      <div class="entry-list-header">
+        <h2>&#9789; Dream Journal</h2>
+        <button class="new-entry-btn">&#10024; New Dream</button>
+        <input type="text" class="search-box" placeholder="Search your dreams...">
+      </div>
+      <div class="entry-list-items">
+
+        <div class="entry-card active">
+          <div class="entry-card-date">March 29, 2026</div>
+          <div class="entry-card-title">The golden door</div>
+          <div class="entry-card-preview">I was standing in a long hallway with doors on both sides. At the very end, a golden door was glowing...</div>
+          <div class="entry-card-clarity">&#9790;&#9790;&#9790;&#9790;&#9789;</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">doors</span>
+            <span class="tag-pill">light</span>
+            <span class="entry-card-badge">LUCID</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 27, 2026</div>
+          <div class="entry-card-title">Ocean beneath the floor</div>
+          <div class="entry-card-preview">The floor of my childhood home turned transparent and beneath it was an endless ocean with whales...</div>
+          <div class="entry-card-clarity">&#9790;&#9790;&#9790;&#9789;&#9789;</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">water</span>
+            <span class="tag-pill">home</span>
+            <span class="tag-pill">animals</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 24, 2026</div>
+          <div class="entry-card-title">Flying over mountains</div>
+          <div class="entry-card-preview">I could fly again. Soaring over snow-capped mountains with a warm wind. Felt completely free...</div>
+          <div class="entry-card-clarity">&#9790;&#9790;&#9790;&#9790;&#9790;</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">flying</span>
+            <span class="tag-pill">freedom</span>
+            <span class="entry-card-badge">LUCID</span>
+            <span class="entry-card-badge">RECURRING</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 22, 2026</div>
+          <div class="entry-card-title">Teeth crumbling</div>
+          <div class="entry-card-preview">Classic anxiety dream — my teeth started falling out one by one during a work presentation...</div>
+          <div class="entry-card-clarity">&#9790;&#9790;&#9789;&#9789;&#9789;</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">teeth</span>
+            <span class="tag-pill">anxiety</span>
+            <span class="entry-card-badge">RECURRING</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dream editor -->
+    <div class="entry-editor">
+      <div class="editor-inner">
+        <div class="editor-date">March 29, 2026 &#8226; Sunday</div>
+        <input type="text" class="editor-title-input" value="The golden door" placeholder="Name this dream...">
+
+        <!-- Clarity rating -->
+        <div class="clarity-selector">
+          <span class="clarity-label">Clarity:</span>
+          <span class="clarity-moon active">&#9790;</span>
+          <span class="clarity-moon active">&#9790;</span>
+          <span class="clarity-moon active">&#9790;</span>
+          <span class="clarity-moon active">&#9790;</span>
+          <span class="clarity-moon">&#9790;</span>
+        </div>
+
+        <!-- Toggles -->
+        <div class="toggle-row">
+          <div class="toggle-item">
+            <label>Lucid dream</label>
+            <div class="toggle-switch on"></div>
+          </div>
+          <div class="toggle-item">
+            <label>Recurring</label>
+            <div class="toggle-switch"></div>
+          </div>
+        </div>
+
+        <div class="editor-divider">&#9790; &#10038; &#9790;</div>
+
+        <!-- Body -->
+        <textarea class="editor-body" placeholder="Describe your dream...">I was standing in a long hallway with doors on both sides. Most were ordinary — wood, painted white. But at the very end, a golden door was glowing softly, pulsing like a heartbeat.
+
+I walked toward it slowly. Each step made the hallway stretch longer, but I didn't feel frustrated — just patient. I knew I'd reach it eventually.
+
+When I finally touched the handle, it was warm. I woke up before I could open it, but the warmth stayed in my hand for minutes after waking.</textarea>
+
+        <!-- Symbol tags -->
+        <div class="tags-section">
+          <div class="tags-section-label">Dream Symbols</div>
+          <div class="tags-display">
+            <span class="symbol-pill">doors <span class="tag-remove">&#10005;</span></span>
+            <span class="symbol-pill">light <span class="tag-remove">&#10005;</span></span>
+            <span class="symbol-pill">gold <span class="tag-remove">&#10005;</span></span>
+            <input type="text" class="tag-add-input" placeholder="add symbol...">
+          </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="editor-actions">
+          <button class="btn btn-save">Save</button>
+          <button class="btn btn-analyse">&#10024; Analyse</button>
+          <button class="btn btn-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /dream page -->
+
+    <!-- ===== SOUL REVIEW PAGE ===== -->
+    <div class="page" data-page="review">
+      <div class="review-page">
+        <div class="review-inner">
+
+          <div class="review-header">
+            <h2>&#10022; Soul Review</h2>
+            <div class="week-nav">
+              <button class="week-nav-btn">&#8592;</button>
+              <span class="week-range">March 23 &#8211; March 29, 2026</span>
+              <button class="week-nav-btn">&#8594;</button>
+            </div>
+          </div>
+
+          <!-- Summary cards -->
+          <div class="summary-cards">
+            <div class="summary-card">
+              <div class="summary-card-label">Journal Entries</div>
+              <div class="summary-card-value">5</div>
+              <div class="summary-card-sub">3 daily &bull; 2 dreams</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-card-label">Mood Trend</div>
+              <div class="mood-trend">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D4A0A0" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A0A0" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A0A0" stroke="none"/><path d="M8.5 16c1-1.2 2-1.5 3.5-1.5s2.5.3 3.5 1.5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#C4B1D4" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#C4B1D4" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#C4B1D4" stroke="none"/><path d="M9 15h6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#A8C5A0" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#A8C5A0" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#A8C5A0" stroke="none"/><path d="M8.5 14.5c1 1.2 2 1.5 3.5 1.5s2.5-.3 3.5-1.5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><path d="M8 14.5c1.2 1.8 2.5 2 4 2s2.8-.2 4-2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><path d="M8 14.5c1.2 1.8 2.5 2 4 2s2.8-.2 4-2"/></svg>
+              </div>
+              <div class="summary-card-sub">Trending upward &#8593;</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-card-label">Common Themes</div>
+              <div class="common-tags">
+                <span class="tag-pill">growth</span>
+                <span class="tag-pill">meditation</span>
+                <span class="tag-pill">healing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generate button -->
+          <button class="generate-btn">&#10024; Generate Soul Review</button>
+
+          <!-- Sample analysis -->
+          <div class="analysis-content">
+            <h3>&#9790; Weekly Reflection</h3>
+            <p>This week has been a journey from scattered energy to grounded clarity. The early part of the week saw you navigating some internal turbulence — a natural response to the <span class="highlight">waning gibbous moon</span> in Scorpio, which tends to surface what's been buried.</p>
+
+            <div class="analysis-divider">&#10038; &#10038; &#10038;</div>
+
+            <h3>&#9788; Astrological Insights</h3>
+            <p>With <span class="highlight">Venus transiting your 5th house</span>, creativity and self-expression have been calling to you — your conversation about painting and the vivid dream imagery both reflect this transit's influence. The golden door in your dream may symbolize a creative threshold you're approaching.</p>
+
+            <h3>&#10022; Numerological Patterns</h3>
+            <p>This week carries a <span class="highlight">7 vibration</span> (March 23-29 = 3+2+3+2+9 = 19 = 10 = 1+0... reduced to spiritual 7). Seven is the seeker's number — introspection, spiritual deepening, and inner wisdom. Your journal entries beautifully mirror this energy.</p>
+
+            <div class="analysis-divider">&#9790; &#10038; &#9790;</div>
+
+            <h3>&#127793; Guidance for the Week Ahead</h3>
+            <p>The oak tree from your meditation keeps appearing as a symbol — rootedness, patience, slow growth. Consider spending time in nature this coming week. The stillness you found in meditation is trying to teach you something about trust.</p>
+            <p>Your dream about the golden door suggests you're on the verge of a new understanding. Don't rush to open it — the warmth in your hand is the message itself.</p>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /review page -->
+
+    <!-- ===== SETTINGS PAGE ===== -->
+    <div class="page" data-page="settings">
+      <div class="settings-page">
+        <div class="settings-inner">
+
+          <h2>&#9881; Settings</h2>
+
+          <!-- Birth info -->
+          <div class="settings-section">
+            <div class="settings-section-title">Birth Information</div>
+            <div class="settings-field">
+              <label>Birth Date</label>
+              <input type="date" class="settings-input" value="1995-06-21">
+            </div>
+            <div class="settings-row">
+              <div class="settings-field">
+                <label>Birth Time (optional)</label>
+                <input type="time" class="settings-input" value="14:30">
+              </div>
+              <div class="settings-field">
+                <label>Birth Location</label>
+                <input type="text" class="settings-input" value="Amsterdam, Netherlands" placeholder="City, Country">
+              </div>
+            </div>
+          </div>
+
+          <!-- Spiritual frameworks -->
+          <div class="settings-section">
+            <div class="settings-section-title">Spiritual Frameworks</div>
+            <div class="framework-toggles">
+              <button class="framework-pill active">&#9788; Astrology</button>
+              <button class="framework-pill active">&#35; Numerology</button>
+              <button class="framework-pill active">&#9827; Tarot</button>
+              <button class="framework-pill active">&#10047; Chakras</button>
+              <button class="framework-pill active">&#10024; General Spiritual</button>
+            </div>
+          </div>
+
+          <!-- API Key -->
+          <div class="settings-section">
+            <div class="settings-section-title">AI Connection</div>
+            <div class="api-key-row">
+              <div class="settings-field">
+                <label>Anthropic API Key</label>
+                <input type="password" class="settings-input" value="sk-ant-xxxxxxxxxxxxx" placeholder="Enter your API key...">
+              </div>
+              <button class="btn-small">Test</button>
+            </div>
+          </div>
+
+          <!-- Theme -->
+          <div class="settings-section">
+            <div class="settings-section-title">Appearance</div>
+            <div class="theme-selector">
+              <div class="theme-option active">
+                <div class="theme-option-icon">&#9788;</div>
+                <div class="theme-option-label">Light</div>
+              </div>
+              <div class="theme-option">
+                <div class="theme-option-icon">&#9790;</div>
+                <div class="theme-option-label">Dark</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data -->
+          <div class="settings-section">
+            <div class="settings-section-title">Your Data</div>
+            <div class="data-buttons">
+              <button class="btn-outline">&#8615; Export JSON</button>
+              <button class="btn-outline">&#8613; Import Data</button>
+            </div>
+          </div>
+
+          <!-- About -->
+          <div class="settings-section">
+            <div class="editor-divider">&#9790; &#10038; &#9790;</div>
+            <div class="about-section">
+              <div class="app-name">Soul Journal</div>
+              <div class="app-version">Version 1.0.0</div>
+              <div class="app-quote">"The soul usually knows what to do to heal itself.<br>The challenge is to silence the mind."</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /settings page -->
+
   </main>
+
+  <script>
+    // Tab switching
+    const navItems = document.querySelectorAll('.sidebar-nav li');
+    const pages = document.querySelectorAll('.page');
+    const pageKeys = ['daily', 'dream', 'review', 'settings'];
+
+    navItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        navItems.forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
+
+        pages.forEach(page => page.classList.remove('active'));
+        const target = document.querySelector(`[data-page="${pageKeys[index]}"]`);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    // Toggle switches
+    document.querySelectorAll('.toggle-switch').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('on');
+      });
+    });
+
+    // Mood button selection
+    document.querySelectorAll('.mood-selector').forEach(selector => {
+      selector.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selector.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    });
+
+    // Framework pill toggling
+    document.querySelectorAll('.framework-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        pill.classList.toggle('active');
+      });
+    });
+
+    // Theme option selection
+    document.querySelectorAll('.theme-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
