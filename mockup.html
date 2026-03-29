@@ -598,6 +598,181 @@
       font-weight: 600;
       margin-left: 8px;
     }
+
+    /* Soul Review page */
+    .review-page {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px;
+    }
+
+    .review-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .review-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .week-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .week-nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: white;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .week-nav-btn:hover {
+      border-color: var(--lavender);
+      color: var(--text);
+    }
+
+    .week-range {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Summary cards */
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .summary-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .summary-card-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .summary-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .summary-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .mood-trend {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .mood-trend svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Common tags */
+    .common-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    /* Generate button */
+    .generate-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--lavender), var(--gold));
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 32px;
+    }
+
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(196, 177, 212, 0.4);
+    }
+
+    /* Analysis content */
+    .analysis-content {
+      background: white;
+      border-radius: 14px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      line-height: 1.8;
+    }
+
+    .analysis-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .analysis-content h3:first-child {
+      margin-top: 0;
+    }
+
+    .analysis-content p {
+      font-size: 0.92rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .analysis-content .highlight {
+      background: rgba(212, 169, 106, 0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .analysis-divider {
+      text-align: center;
+      color: var(--border);
+      font-size: 0.8rem;
+      margin: 24px 0;
+      letter-spacing: 8px;
+    }
   </style>
 </head>
 <body>
@@ -913,6 +1088,75 @@ When I finally touched the handle, it was warm. I woke up before I could open it
     </div>
 
     </div><!-- /dream page -->
+
+    <!-- ===== SOUL REVIEW PAGE ===== -->
+    <div class="page" data-page="review">
+      <div class="review-page">
+        <div class="review-inner">
+
+          <div class="review-header">
+            <h2>&#10022; Soul Review</h2>
+            <div class="week-nav">
+              <button class="week-nav-btn">&#8592;</button>
+              <span class="week-range">March 23 &#8211; March 29, 2026</span>
+              <button class="week-nav-btn">&#8594;</button>
+            </div>
+          </div>
+
+          <!-- Summary cards -->
+          <div class="summary-cards">
+            <div class="summary-card">
+              <div class="summary-card-label">Journal Entries</div>
+              <div class="summary-card-value">5</div>
+              <div class="summary-card-sub">3 daily &bull; 2 dreams</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-card-label">Mood Trend</div>
+              <div class="mood-trend">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D4A0A0" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A0A0" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A0A0" stroke="none"/><path d="M8.5 16c1-1.2 2-1.5 3.5-1.5s2.5.3 3.5 1.5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#C4B1D4" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#C4B1D4" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#C4B1D4" stroke="none"/><path d="M9 15h6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#A8C5A0" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#A8C5A0" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#A8C5A0" stroke="none"/><path d="M8.5 14.5c1 1.2 2 1.5 3.5 1.5s2.5-.3 3.5-1.5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><path d="M8 14.5c1.2 1.8 2.5 2 4 2s2.8-.2 4-2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><path d="M8 14.5c1.2 1.8 2.5 2 4 2s2.8-.2 4-2"/></svg>
+              </div>
+              <div class="summary-card-sub">Trending upward &#8593;</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-card-label">Common Themes</div>
+              <div class="common-tags">
+                <span class="tag-pill">growth</span>
+                <span class="tag-pill">meditation</span>
+                <span class="tag-pill">healing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generate button -->
+          <button class="generate-btn">&#10024; Generate Soul Review</button>
+
+          <!-- Sample analysis -->
+          <div class="analysis-content">
+            <h3>&#9790; Weekly Reflection</h3>
+            <p>This week has been a journey from scattered energy to grounded clarity. The early part of the week saw you navigating some internal turbulence — a natural response to the <span class="highlight">waning gibbous moon</span> in Scorpio, which tends to surface what's been buried.</p>
+
+            <div class="analysis-divider">&#10038; &#10038; &#10038;</div>
+
+            <h3>&#9788; Astrological Insights</h3>
+            <p>With <span class="highlight">Venus transiting your 5th house</span>, creativity and self-expression have been calling to you — your conversation about painting and the vivid dream imagery both reflect this transit's influence. The golden door in your dream may symbolize a creative threshold you're approaching.</p>
+
+            <h3>&#10022; Numerological Patterns</h3>
+            <p>This week carries a <span class="highlight">7 vibration</span> (March 23-29 = 3+2+3+2+9 = 19 = 10 = 1+0... reduced to spiritual 7). Seven is the seeker's number — introspection, spiritual deepening, and inner wisdom. Your journal entries beautifully mirror this energy.</p>
+
+            <div class="analysis-divider">&#9790; &#10038; &#9790;</div>
+
+            <h3>&#127793; Guidance for the Week Ahead</h3>
+            <p>The oak tree from your meditation keeps appearing as a symbol — rootedness, patience, slow growth. Consider spending time in nature this coming week. The stillness you found in meditation is trying to teach you something about trust.</p>
+            <p>Your dream about the golden door suggests you're on the verge of a new understanding. Don't rush to open it — the warmth in your hand is the message itself.</p>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /review page -->
 
   </main>
 
