@@ -57,7 +57,7 @@ Write a simple test that creates a daily entry, retrieves it, and deletes it —
 
 ---
 
-## Prompt 2 — State Management & Types
+## Prompt 2 — State Management & Types ✅ COMPLETED
 
 ```
 Set up Zustand stores and TypeScript types:

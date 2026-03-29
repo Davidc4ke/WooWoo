@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDailyStore, useDreamStore, useSettingsStore } from './stores';
 
 const App: React.FC = () => {
+  const loadDailyEntries = useDailyStore((s) => s.loadEntries);
+  const loadDreamEntries = useDreamStore((s) => s.loadEntries);
+  const loadSettings = useSettingsStore((s) => s.loadSettings);
+
+  useEffect(() => {
+    loadSettings();
+    loadDailyEntries();
+    loadDreamEntries();
+  }, [loadSettings, loadDailyEntries, loadDreamEntries]);
+
   return (
     <div style={{
       display: 'flex',
