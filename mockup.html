@@ -467,6 +467,137 @@
     .btn-delete:hover {
       background: rgba(212, 160, 160, 0.1);
     }
+
+    /* Tab pages */
+    .page {
+      display: none;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    /* Dream journal specifics */
+    .clarity-selector {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    .clarity-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-right: 8px;
+    }
+
+    .clarity-moon {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: transparent;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0.3;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+
+    .clarity-moon:hover {
+      opacity: 0.6;
+      transform: scale(1.15);
+    }
+
+    .clarity-moon.active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* Toggle switches */
+    .toggle-row {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-item label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 42px;
+      height: 24px;
+      background: var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .toggle-switch.on {
+      background: var(--lavender);
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      transition: transform 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+
+    .toggle-switch.on::after {
+      transform: translateX(18px);
+    }
+
+    /* Symbol tags */
+    .symbol-pill {
+      font-size: 0.8rem;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: rgba(196, 177, 212, 0.2);
+      color: #7B6B8B;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Dream card clarity stars */
+    .entry-card-clarity {
+      font-size: 0.75rem;
+      color: var(--gold);
+      margin-top: 4px;
+      letter-spacing: 2px;
+    }
+
+    .entry-card-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(196, 177, 212, 0.25);
+      color: #7B6B8B;
+      font-weight: 600;
+      margin-left: 8px;
+    }
   </style>
 </head>
 <body>
@@ -499,6 +630,9 @@
 
   <!-- Main content -->
   <main class="main">
+
+    <!-- ===== DAILY JOURNAL PAGE ===== -->
+    <div class="page active" data-page="daily">
 
     <!-- Entry list panel -->
     <div class="entry-list">
@@ -655,7 +789,167 @@ Need to remember this feeling when things get chaotic. The stillness is always a
       </div>
     </div>
 
+    </div><!-- /daily page -->
+
+    <!-- ===== DREAM JOURNAL PAGE ===== -->
+    <div class="page" data-page="dream">
+
+    <!-- Dream entry list -->
+    <div class="entry-list">
+      <div class="entry-list-header">
+        <h2>&#9789; Dream Journal</h2>
+        <button class="new-entry-btn">&#10024; New Dream</button>
+        <input type="text" class="search-box" placeholder="Search your dreams...">
+      </div>
+      <div class="entry-list-items">
+
+        <div class="entry-card active">
+          <div class="entry-card-date">March 29, 2026</div>
+          <div class="entry-card-title">The golden door</div>
+          <div class="entry-card-preview">I was standing in a long hallway with doors on both sides. At the very end, a golden door was glowing...</div>
+          <div class="entry-card-clarity">&#9790;&#9790;&#9790;&#9790;&#9789;</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">doors</span>
+            <span class="tag-pill">light</span>
+            <span class="entry-card-badge">LUCID</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 27, 2026</div>
+          <div class="entry-card-title">Ocean beneath the floor</div>
+          <div class="entry-card-preview">The floor of my childhood home turned transparent and beneath it was an endless ocean with whales...</div>
+          <div class="entry-card-clarity">&#9790;&#9790;&#9790;&#9789;&#9789;</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">water</span>
+            <span class="tag-pill">home</span>
+            <span class="tag-pill">animals</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 24, 2026</div>
+          <div class="entry-card-title">Flying over mountains</div>
+          <div class="entry-card-preview">I could fly again. Soaring over snow-capped mountains with a warm wind. Felt completely free...</div>
+          <div class="entry-card-clarity">&#9790;&#9790;&#9790;&#9790;&#9790;</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">flying</span>
+            <span class="tag-pill">freedom</span>
+            <span class="entry-card-badge">LUCID</span>
+            <span class="entry-card-badge">RECURRING</span>
+          </div>
+        </div>
+
+        <div class="entry-card">
+          <div class="entry-card-date">March 22, 2026</div>
+          <div class="entry-card-title">Teeth crumbling</div>
+          <div class="entry-card-preview">Classic anxiety dream — my teeth started falling out one by one during a work presentation...</div>
+          <div class="entry-card-clarity">&#9790;&#9790;&#9789;&#9789;&#9789;</div>
+          <div class="entry-card-tags">
+            <span class="tag-pill">teeth</span>
+            <span class="tag-pill">anxiety</span>
+            <span class="entry-card-badge">RECURRING</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dream editor -->
+    <div class="entry-editor">
+      <div class="editor-inner">
+        <div class="editor-date">March 29, 2026 &#8226; Sunday</div>
+        <input type="text" class="editor-title-input" value="The golden door" placeholder="Name this dream...">
+
+        <!-- Clarity rating -->
+        <div class="clarity-selector">
+          <span class="clarity-label">Clarity:</span>
+          <span class="clarity-moon active">&#9790;</span>
+          <span class="clarity-moon active">&#9790;</span>
+          <span class="clarity-moon active">&#9790;</span>
+          <span class="clarity-moon active">&#9790;</span>
+          <span class="clarity-moon">&#9790;</span>
+        </div>
+
+        <!-- Toggles -->
+        <div class="toggle-row">
+          <div class="toggle-item">
+            <label>Lucid dream</label>
+            <div class="toggle-switch on"></div>
+          </div>
+          <div class="toggle-item">
+            <label>Recurring</label>
+            <div class="toggle-switch"></div>
+          </div>
+        </div>
+
+        <div class="editor-divider">&#9790; &#10038; &#9790;</div>
+
+        <!-- Body -->
+        <textarea class="editor-body" placeholder="Describe your dream...">I was standing in a long hallway with doors on both sides. Most were ordinary — wood, painted white. But at the very end, a golden door was glowing softly, pulsing like a heartbeat.
+
+I walked toward it slowly. Each step made the hallway stretch longer, but I didn't feel frustrated — just patient. I knew I'd reach it eventually.
+
+When I finally touched the handle, it was warm. I woke up before I could open it, but the warmth stayed in my hand for minutes after waking.</textarea>
+
+        <!-- Symbol tags -->
+        <div class="tags-section">
+          <div class="tags-section-label">Dream Symbols</div>
+          <div class="tags-display">
+            <span class="symbol-pill">doors <span class="tag-remove">&#10005;</span></span>
+            <span class="symbol-pill">light <span class="tag-remove">&#10005;</span></span>
+            <span class="symbol-pill">gold <span class="tag-remove">&#10005;</span></span>
+            <input type="text" class="tag-add-input" placeholder="add symbol...">
+          </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="editor-actions">
+          <button class="btn btn-save">Save</button>
+          <button class="btn btn-analyse">&#10024; Analyse</button>
+          <button class="btn btn-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /dream page -->
+
   </main>
+
+  <script>
+    // Tab switching
+    const navItems = document.querySelectorAll('.sidebar-nav li');
+    const pages = document.querySelectorAll('.page');
+    const pageKeys = ['daily', 'dream', 'review', 'settings'];
+
+    navItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        navItems.forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
+
+        pages.forEach(page => page.classList.remove('active'));
+        const target = document.querySelector(`[data-page="${pageKeys[index]}"]`);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    // Toggle switches
+    document.querySelectorAll('.toggle-switch').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('on');
+      });
+    });
+
+    // Mood button selection
+    document.querySelectorAll('.mood-selector').forEach(selector => {
+      selector.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selector.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
