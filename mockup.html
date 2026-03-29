@@ -212,7 +212,15 @@
     }
 
     .entry-card-title .mood {
-      font-size: 1.1rem;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .entry-card-title .mood svg {
+      width: 18px;
+      height: 18px;
     }
 
     .entry-card-preview {
@@ -293,17 +301,23 @@
     }
 
     .mood-btn {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       border: 2px solid var(--border);
       background: white;
-      font-size: 1.2rem;
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0;
+      position: relative;
+    }
+
+    .mood-btn svg {
+      width: 24px;
+      height: 24px;
     }
 
     .mood-btn:hover {
@@ -498,7 +512,7 @@
         <div class="entry-card active">
           <div class="entry-card-date">March 29, 2026</div>
           <div class="entry-card-title">
-            <span class="mood">&#9728;&#65039;</span>
+            <span class="mood"><svg viewBox="0 0 24 24" fill="none" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><path d="M8 14.5c1.2 1.8 2.5 2 4 2s2.8-.2 4-2"/></svg></span>
             Morning clarity
           </div>
           <div class="entry-card-preview">Woke up feeling unusually grounded today. The meditation session brought some vivid imagery...</div>
@@ -511,7 +525,7 @@
         <div class="entry-card">
           <div class="entry-card-date">March 28, 2026</div>
           <div class="entry-card-title">
-            <span class="mood">&#128522;</span>
+            <span class="mood"><svg viewBox="0 0 24 24" fill="none" stroke="#A8C5A0" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#A8C5A0" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#A8C5A0" stroke="none"/><path d="M8.5 14.5c1 1.2 2 1.5 3.5 1.5s2.5-.3 3.5-1.5"/></svg></span>
             A good day overall
           </div>
           <div class="entry-card-preview">Had a meaningful conversation with Sarah about our creative projects. Felt inspired to start painting again...</div>
@@ -524,7 +538,7 @@
         <div class="entry-card">
           <div class="entry-card-date">March 27, 2026</div>
           <div class="entry-card-title">
-            <span class="mood">&#128528;</span>
+            <span class="mood"><svg viewBox="0 0 24 24" fill="none" stroke="#C4B1D4" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#C4B1D4" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#C4B1D4" stroke="none"/><path d="M9 15h6"/></svg></span>
             Quiet reflection
           </div>
           <div class="entry-card-preview">Not much happened externally but I spent a lot of time thinking about what direction I want to take...</div>
@@ -536,7 +550,7 @@
         <div class="entry-card">
           <div class="entry-card-date">March 26, 2026</div>
           <div class="entry-card-title">
-            <span class="mood">&#127780;&#65039;</span>
+            <span class="mood"><svg viewBox="0 0 24 24" fill="none" stroke="#D4A0A0" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A0A0" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A0A0" stroke="none"/><path d="M8.5 16c1-1.2 2-1.5 3.5-1.5s2.5.3 3.5 1.5"/></svg></span>
             Feeling a bit low
           </div>
           <div class="entry-card-preview">Energy was off today. Couldn't focus on work and felt scattered. Maybe the full moon energy is affecting me...</div>
@@ -549,7 +563,7 @@
         <div class="entry-card">
           <div class="entry-card-date">March 25, 2026</div>
           <div class="entry-card-title">
-            <span class="mood">&#9728;&#65039;</span>
+            <span class="mood"><svg viewBox="0 0 24 24" fill="none" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><circle cx="15" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/><path d="M8 14.5c1.2 1.8 2.5 2 4 2s2.8-.2 4-2"/></svg></span>
             Breakthrough moment
           </div>
           <div class="entry-card-preview">Something shifted during yoga today. I finally understood what my therapist meant about letting go...</div>
@@ -571,11 +585,46 @@
         <!-- Mood selector -->
         <div class="mood-selector">
           <span class="mood-label">Mood:</span>
-          <button class="mood-btn active" title="Radiant">&#9728;&#65039;</button>
-          <button class="mood-btn" title="Good">&#128522;</button>
-          <button class="mood-btn" title="Neutral">&#128528;</button>
-          <button class="mood-btn" title="Low">&#127780;&#65039;</button>
-          <button class="mood-btn" title="Stormy">&#9928;&#65039;</button>
+          <button class="mood-btn active" title="Radiant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="9" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/>
+              <circle cx="15" cy="10.5" r="0.8" fill="#D4A96A" stroke="none"/>
+              <path d="M8 14.5c1.2 1.8 2.5 2 4 2s2.8-.2 4-2"/>
+            </svg>
+          </button>
+          <button class="mood-btn" title="Good">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#A8C5A0" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="9" cy="10.5" r="0.8" fill="#A8C5A0" stroke="none"/>
+              <circle cx="15" cy="10.5" r="0.8" fill="#A8C5A0" stroke="none"/>
+              <path d="M8.5 14.5c1 1.2 2 1.5 3.5 1.5s2.5-.3 3.5-1.5"/>
+            </svg>
+          </button>
+          <button class="mood-btn" title="Neutral">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C4B1D4" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="9" cy="10.5" r="0.8" fill="#C4B1D4" stroke="none"/>
+              <circle cx="15" cy="10.5" r="0.8" fill="#C4B1D4" stroke="none"/>
+              <path d="M9 15h6"/>
+            </svg>
+          </button>
+          <button class="mood-btn" title="Low">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4A0A0" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="9" cy="10.5" r="0.8" fill="#D4A0A0" stroke="none"/>
+              <circle cx="15" cy="10.5" r="0.8" fill="#D4A0A0" stroke="none"/>
+              <path d="M8.5 16c1-1.2 2-1.5 3.5-1.5s2.5.3 3.5 1.5"/>
+            </svg>
+          </button>
+          <button class="mood-btn" title="Stormy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8A8A8A" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="9" cy="10.5" r="0.8" fill="#8A8A8A" stroke="none"/>
+              <circle cx="15" cy="10.5" r="0.8" fill="#8A8A8A" stroke="none"/>
+              <path d="M8 16.5c1.2-1.8 2.5-2 4-2s2.8.2 4 2"/>
+            </svg>
+          </button>
         </div>
 
         <div class="editor-divider">&#10038; &#10038; &#10038;</div>
