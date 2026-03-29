@@ -4,7 +4,7 @@ Feed these prompts to Claude Code sequentially. Each prompt builds on the previo
 
 ---
 
-## Prompt 0 — Project Setup
+## Prompt 0 — Project Setup ✅ COMPLETED
 
 ```
 Read the file 01-project-requirements.md in the project root. This is the full requirements doc for the app we're building. Keep it as reference for all future prompts.

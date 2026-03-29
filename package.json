@@ -1,0 +1,45 @@
+{
+  "name": "soul-journal",
+  "version": "1.0.0",
+  "description": "A local-first, AI-enhanced desktop journaling app",
+  "main": "dist/main/src/main/main.js",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:web": "vite",
+    "build": "tsc -p tsconfig.main.json && vite build",
+    "build:main": "tsc -p tsconfig.main.json",
+    "test": "echo \"No tests yet\" && exit 0",
+    "lint": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:36721/git/Davidc4ke/WooWoo"
+  },
+  "keywords": ["journal", "spiritual", "electron"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "better-sqlite3": "^12.8.0",
+    "electron": "^41.1.0",
+    "lucide-react": "^1.7.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "uuid": "^13.0.0",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/react": "^19.2.4",
+    "@types/react-dom": "^19.2.3",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "electron-builder": "^26.8.1",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.3",
+    "wait-on": "^9.0.4"
+  }
+}
