@@ -773,6 +773,221 @@
       margin: 24px 0;
       letter-spacing: 8px;
     }
+
+    /* Settings page */
+    .settings-page {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px;
+    }
+
+    .settings-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .settings-inner h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .settings-section {
+      margin-bottom: 36px;
+    }
+
+    .settings-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .settings-field {
+      margin-bottom: 16px;
+    }
+
+    .settings-field label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .settings-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .settings-input:focus {
+      border-color: var(--lavender);
+    }
+
+    .settings-row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .settings-row .settings-field {
+      flex: 1;
+    }
+
+    /* Framework toggles */
+    .framework-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .framework-pill {
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: white;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .framework-pill:hover {
+      border-color: var(--lavender);
+    }
+
+    .framework-pill.active {
+      background: rgba(196, 177, 212, 0.15);
+      border-color: var(--lavender);
+      color: var(--text);
+    }
+
+    /* API key field */
+    .api-key-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .api-key-row .settings-field {
+      flex: 1;
+    }
+
+    .btn-small {
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .btn-small:hover {
+      border-color: var(--lavender);
+    }
+
+    /* Theme toggle */
+    .theme-selector {
+      display: flex;
+      gap: 12px;
+    }
+
+    .theme-option {
+      flex: 1;
+      padding: 16px;
+      border-radius: 14px;
+      border: 2px solid var(--border);
+      background: white;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .theme-option:hover {
+      border-color: var(--lavender);
+    }
+
+    .theme-option.active {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 169, 106, 0.2);
+    }
+
+    .theme-option-icon {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .theme-option-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Data buttons */
+    .data-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-outline {
+      padding: 10px 24px;
+      border-radius: 12px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid var(--sage);
+      background: transparent;
+      color: #6B8A63;
+    }
+
+    .btn-outline:hover {
+      background: rgba(168, 197, 160, 0.1);
+    }
+
+    /* About section */
+    .about-section {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+    }
+
+    .about-section .app-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .about-section .app-version {
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .about-section .app-quote {
+      font-size: 0.85rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -1158,6 +1373,94 @@ When I finally touched the handle, it was warm. I woke up before I could open it
       </div>
     </div><!-- /review page -->
 
+    <!-- ===== SETTINGS PAGE ===== -->
+    <div class="page" data-page="settings">
+      <div class="settings-page">
+        <div class="settings-inner">
+
+          <h2>&#9881; Settings</h2>
+
+          <!-- Birth info -->
+          <div class="settings-section">
+            <div class="settings-section-title">Birth Information</div>
+            <div class="settings-field">
+              <label>Birth Date</label>
+              <input type="date" class="settings-input" value="1995-06-21">
+            </div>
+            <div class="settings-row">
+              <div class="settings-field">
+                <label>Birth Time (optional)</label>
+                <input type="time" class="settings-input" value="14:30">
+              </div>
+              <div class="settings-field">
+                <label>Birth Location</label>
+                <input type="text" class="settings-input" value="Amsterdam, Netherlands" placeholder="City, Country">
+              </div>
+            </div>
+          </div>
+
+          <!-- Spiritual frameworks -->
+          <div class="settings-section">
+            <div class="settings-section-title">Spiritual Frameworks</div>
+            <div class="framework-toggles">
+              <button class="framework-pill active">&#9788; Astrology</button>
+              <button class="framework-pill active">&#35; Numerology</button>
+              <button class="framework-pill active">&#9827; Tarot</button>
+              <button class="framework-pill active">&#10047; Chakras</button>
+              <button class="framework-pill active">&#10024; General Spiritual</button>
+            </div>
+          </div>
+
+          <!-- API Key -->
+          <div class="settings-section">
+            <div class="settings-section-title">AI Connection</div>
+            <div class="api-key-row">
+              <div class="settings-field">
+                <label>Anthropic API Key</label>
+                <input type="password" class="settings-input" value="sk-ant-xxxxxxxxxxxxx" placeholder="Enter your API key...">
+              </div>
+              <button class="btn-small">Test</button>
+            </div>
+          </div>
+
+          <!-- Theme -->
+          <div class="settings-section">
+            <div class="settings-section-title">Appearance</div>
+            <div class="theme-selector">
+              <div class="theme-option active">
+                <div class="theme-option-icon">&#9788;</div>
+                <div class="theme-option-label">Light</div>
+              </div>
+              <div class="theme-option">
+                <div class="theme-option-icon">&#9790;</div>
+                <div class="theme-option-label">Dark</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data -->
+          <div class="settings-section">
+            <div class="settings-section-title">Your Data</div>
+            <div class="data-buttons">
+              <button class="btn-outline">&#8615; Export JSON</button>
+              <button class="btn-outline">&#8613; Import Data</button>
+            </div>
+          </div>
+
+          <!-- About -->
+          <div class="settings-section">
+            <div class="editor-divider">&#9790; &#10038; &#9790;</div>
+            <div class="about-section">
+              <div class="app-name">Soul Journal</div>
+              <div class="app-version">Version 1.0.0</div>
+              <div class="app-quote">"The soul usually knows what to do to heal itself.<br>The challenge is to silence the mind."</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /settings page -->
+
   </main>
 
   <script>
@@ -1191,6 +1494,21 @@ When I finally touched the handle, it was warm. I woke up before I could open it
           selector.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
         });
+      });
+    });
+
+    // Framework pill toggling
+    document.querySelectorAll('.framework-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        pill.classList.toggle('active');
+      });
+    });
+
+    // Theme option selection
+    document.querySelectorAll('.theme-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
       });
     });
   </script>
