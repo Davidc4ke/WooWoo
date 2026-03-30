@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSettingsStore, useUIStore, useDailyStore, useDreamStore } from '../stores';
 import { dailyEntryRepo, dreamEntryRepo, analysisRepo } from '../db';
-import type { SpiritualFramework } from '../../shared/types';
+import type { SpiritualFramework, Analysis } from '../../shared/types';
 import { Eye, EyeOff } from 'lucide-react';
 
 const FRAMEWORKS: { key: SpiritualFramework; icon: string; label: string; description: string }[] = [
@@ -122,7 +122,7 @@ const SettingsPage: React.FC = () => {
   const handleExport = useCallback(() => {
     const allDaily = dailyEntryRepo.getAll(1, 10000);
     const allDreams = dreamEntryRepo.getAll(1, 10000);
-    const allAnalyses: ReturnType<typeof analysisRepo.getByEntryId>[] = [];
+    const allAnalyses: Analysis[] = [];
     // Gather analyses for all entries
     for (const entry of allDaily) {
       const a = analysisRepo.getByEntryId(entry.id);
