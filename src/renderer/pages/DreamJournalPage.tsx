@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDreamStore } from '../stores';
+import { useAnalysisStore } from '../stores/useAnalysisStore';
 import type { DreamEntry } from '../../shared/types';
 import TagInput from '../components/TagInput';
+import AnalysisPanel from '../components/AnalysisPanel';
 import { Search, Sparkles } from 'lucide-react';
 
 function formatDate(dateStr: string): string {
@@ -68,10 +70,11 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ label, value, onChange }) =
 interface DreamEntryCardProps {
   entry: DreamEntry;
   isActive: boolean;
+  hasAnalysis: boolean;
   onClick: () => void;
 }
 
-const DreamEntryCard: React.FC<DreamEntryCardProps> = ({ entry, isActive, onClick }) => {
+const DreamEntryCard: React.FC<DreamEntryCardProps> = ({ entry, isActive, hasAnalysis, onClick }) => {
   const preview = entry.body?.slice(0, 100) || '';
   const clarityMoons = Array.from({ length: 5 }, (_, i) =>
     i < entry.clarity ? '☾' : '☽'
@@ -79,7 +82,10 @@ const DreamEntryCard: React.FC<DreamEntryCardProps> = ({ entry, isActive, onClic
 
   return (
     <div className={`entry-card${isActive ? ' active' : ''}`} onClick={onClick}>
-      <div className="entry-card-date">{formatDate(entry.date)}</div>
+      <div className="entry-card-date">
+        {formatDate(entry.date)}
+        {hasAnalysis && <span className="analysis-indicator" title="Has analysis">🔮</span>}
+      </div>
       <div className="entry-card-title">
         {entry.title || 'Untitled Dream'}
       </div>
@@ -143,11 +149,24 @@ const DreamJournalPage: React.FC = () => {
   const deleteEntry = useDreamStore((s) => s.deleteEntry);
   const searchStore = useDreamStore((s) => s.search);
   const searchQuery = useDreamStore((s) => s.searchQuery);
+  const analysesByEntryId = useAnalysisStore((s) => s.analysesByEntryId);
+  const loadAnalyses = useAnalysisStore((s) => s.loadAnalyses);
+  const analysisLoading = useAnalysisStore((s) => s.loading);
 
   const [editor, setEditor] = useState<DreamEditorState>(emptyEditor);
   const [isNew, setIsNew] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [localSearch, setLocalSearch] = useState(searchQuery);
+  const [showAnalysis, setShowAnalysis] = useState(false);
+
+  // Load analyses for all visible entries
+  useEffect(() => {
+    entries.forEach((entry) => {
+      if (!analysesByEntryId[entry.id]) {
+        loadAnalyses(entry.id);
+      }
+    });
+  }, [entries, analysesByEntryId, loadAnalyses]);
 
   // Sync editor when selection changes
   useEffect(() => {
@@ -162,6 +181,7 @@ const DreamJournalPage: React.FC = () => {
     setEditor({ ...emptyEditor, date: todayISO() });
     setIsNew(true);
     setShowDelete(false);
+    setShowAnalysis(false);
   }, [selectEntry]);
 
   const handleSave = useCallback(() => {
@@ -212,9 +232,15 @@ const DreamJournalPage: React.FC = () => {
       selectEntry(entry);
       setIsNew(false);
       setShowDelete(false);
+      setShowAnalysis(false);
     },
     [selectEntry]
   );
+
+  const handleAnalyse = useCallback(() => {
+    if (isNew) return;
+    setShowAnalysis(true);
+  }, [isNew]);
 
   const showEditor = isNew || selectedEntry !== null;
 
@@ -251,6 +277,7 @@ const DreamJournalPage: React.FC = () => {
               key={entry.id}
               entry={entry}
               isActive={selectedEntry?.id === entry.id}
+              hasAnalysis={(analysesByEntryId[entry.id]?.length || 0) > 0}
               onClick={() => handleSelect(entry)}
             />
           ))}
@@ -314,7 +341,11 @@ const DreamJournalPage: React.FC = () => {
               <button className="btn btn-save" onClick={handleSave}>
                 Save
               </button>
-              <button className="btn btn-analyse" onClick={() => {}}>
+              <button
+                className={`btn btn-analyse${analysisLoading ? ' loading' : ''}`}
+                onClick={handleAnalyse}
+                disabled={isNew || analysisLoading}
+              >
                 ✨ Analyse
               </button>
               {!isNew && selectedEntry && (
@@ -343,6 +374,11 @@ const DreamJournalPage: React.FC = () => {
                 </>
               )}
             </div>
+
+            {/* Analysis Panel */}
+            {showAnalysis && selectedEntry && (
+              <AnalysisPanel entryId={selectedEntry.id} entryType="dream" />
+            )}
           </div>
         ) : (
           <div className="editor-empty">
