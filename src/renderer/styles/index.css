@@ -43,6 +43,7 @@ body {
   color: var(--text);
   height: 100vh;
   overflow: hidden;
+  line-height: 1.7;
 }
 
 #root {
@@ -1244,7 +1245,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 32px;
   padding-top: 24px;
   border-top: 1px solid var(--border);
-  animation: analysisFadeIn 0.4s ease;
 }
 
 @keyframes analysisFadeIn {
@@ -1642,4 +1642,194 @@ h1, h2, h3, h4, h5, h6 {
 
 .review-empty-message .link-btn:hover {
   color: var(--gold);
+}
+
+/* ===== Entry Card Appear Animation ===== */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.entry-list-items .entry-card {
+  animation: cardAppear 0.3s ease forwards;
+}
+
+.entry-list-items .entry-card:nth-child(1) { animation-delay: 0s; }
+.entry-list-items .entry-card:nth-child(2) { animation-delay: 0.04s; }
+.entry-list-items .entry-card:nth-child(3) { animation-delay: 0.08s; }
+.entry-list-items .entry-card:nth-child(4) { animation-delay: 0.12s; }
+.entry-list-items .entry-card:nth-child(5) { animation-delay: 0.16s; }
+.entry-list-items .entry-card:nth-child(6) { animation-delay: 0.2s; }
+.entry-list-items .entry-card:nth-child(7) { animation-delay: 0.24s; }
+.entry-list-items .entry-card:nth-child(8) { animation-delay: 0.28s; }
+
+/* ===== Analyse Button Persistent Glow Pulse ===== */
+@keyframes analyseIdleGlow {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(196, 177, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(196, 177, 212, 0.4), 0 0 20px rgba(212, 169, 106, 0.15);
+  }
+}
+
+.btn-analyse:not(:disabled):not(.loading) {
+  animation: analyseIdleGlow 3s ease-in-out infinite;
+}
+
+/* ===== Analysis Panel Expand/Collapse ===== */
+@keyframes analysisExpand {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    max-height: 2000px;
+    transform: translateY(0);
+  }
+}
+
+.analysis-panel {
+  overflow: hidden;
+  animation: analysisExpand 0.5s ease forwards;
+}
+
+/* ===== Moon Phase Indicator ===== */
+.moon-phase {
+  position: fixed;
+  bottom: 16px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  z-index: 10;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.moon-phase:hover {
+  opacity: 1;
+}
+
+.moon-phase-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.moon-phase-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* ===== Decorative Dividers ===== */
+.section-divider {
+  text-align: center;
+  color: var(--border);
+  font-size: 0.7rem;
+  letter-spacing: 12px;
+  margin: 24px 0;
+  position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  background: var(--border);
+  width: calc(50% - 30px);
+}
+
+.section-divider::before {
+  left: 0;
+}
+
+.section-divider::after {
+  right: 0;
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 900px) {
+  .journal-page {
+    flex-direction: column;
+  }
+
+  .entry-list {
+    width: 100%;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .entry-editor {
+    padding: 24px 20px;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .review-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .sidebar .sidebar-brand h1 {
+    opacity: 0;
+    font-size: 0;
+  }
+
+  .sidebar .sidebar-brand {
+    padding: 20px 8px 16px;
+  }
+
+  .sidebar .sidebar-nav li {
+    padding: 12px 0;
+    justify-content: center;
+    border-left: none;
+  }
+
+  .sidebar .sidebar-nav li .nav-label {
+    opacity: 0;
+    width: 0;
+  }
+
+  .sidebar .sidebar-nav li.active {
+    border-left-color: transparent;
+    background: rgba(196, 177, 212, 0.2);
+  }
+
+  .entry-editor {
+    padding: 20px 16px;
+  }
+
+  .editor-inner {
+    max-width: 100%;
+  }
+
+  .review-page {
+    padding: 24px 16px;
+  }
+
+  .settings-page {
+    padding: 24px 16px;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDailyStore } from '../stores';
 import { useAnalysisStore } from '../stores/useAnalysisStore';
 import type { DailyEntry, Mood } from '../../shared/types';
@@ -6,6 +6,7 @@ import MoodSelector, { moodEmoji } from '../components/MoodSelector';
 import TagInput from '../components/TagInput';
 import AnalysisPanel from '../components/AnalysisPanel';
 import { Search, Sparkles } from 'lucide-react';
+import { setShortcutHandlers } from '../hooks/useKeyboardShortcuts';
 
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + 'T00:00:00');
@@ -100,6 +101,7 @@ const DailyJournalPage: React.FC = () => {
   const [showDelete, setShowDelete] = useState(false);
   const [localSearch, setLocalSearch] = useState(searchQuery);
   const [showAnalysis, setShowAnalysis] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
 
   // Load analyses for all visible entries
   useEffect(() => {
@@ -180,6 +182,15 @@ const DailyJournalPage: React.FC = () => {
     setShowAnalysis(true);
   }, [isNew]);
 
+  // Register keyboard shortcut handlers
+  useEffect(() => {
+    setShortcutHandlers({
+      onNew: handleNew,
+      onSave: handleSave,
+      onFocusSearch: () => searchRef.current?.focus(),
+    });
+  }, [handleNew, handleSave]);
+
   const showEditor = isNew || selectedEntry !== null;
 
   return (
@@ -194,6 +205,7 @@ const DailyJournalPage: React.FC = () => {
           <div className="search-wrapper">
             <Search size={14} className="search-icon" />
             <input
+              ref={searchRef}
               type="text"
               className="search-box"
               placeholder="Search your thoughts..."

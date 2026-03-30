@@ -287,6 +287,8 @@ const SoulReviewPage: React.FC = () => {
           </div>
         </div>
 
+        <div className="section-divider">✦</div>
+
         {/* Encouraging message if few entries */}
         {!hasEntries && (
           <div className="review-empty-message">
